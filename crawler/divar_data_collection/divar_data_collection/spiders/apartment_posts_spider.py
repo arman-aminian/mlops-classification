@@ -1,5 +1,5 @@
 import scrapy
-from divar_data_collection.utils.get_tokens import get_tokens
+from utils.get_tokens import get_tokens
 url = 'https://divar.ir/v/-/{post_token}'
 cities = {
     'tehran': 1,
@@ -13,8 +13,8 @@ cities = {
 class ApartmentPostsSpider(scrapy.Spider):
     name = 'divar-apartment'
 
-    start_urls = [url.format(post_token=token) for token in get_tokens(last_post_date=1667468224366943,
-                                                                       city_number=cities['mahmoodabad'],
+    start_urls = [url.format(post_token=token) for token in get_tokens(last_post_date=1680787229082899,
+                                                                       city_number=cities['tehran'],
                                                                        n_pages=19)]
 
     def parse(self, response, **kwargs):
