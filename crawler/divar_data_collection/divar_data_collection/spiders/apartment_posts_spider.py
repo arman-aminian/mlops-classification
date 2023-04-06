@@ -11,7 +11,7 @@ cities = {
 
 
 class ApartmentPostsSpider(scrapy.Spider):
-    name = 'divar'
+    name = 'divar-apartment'
 
     start_urls = [url.format(post_token=token) for token in get_tokens(last_post_date=1667468224366943,
                                                                        city_number=cities['mahmoodabad'],
