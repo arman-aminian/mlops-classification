@@ -35,7 +35,7 @@ class ApartmentPostsSpider(scrapy.Spider):
 
         yield {
             'Area': area,
-            'Construction': construction,
+            'Model': construction,
             'Room': rooms,
             'Warehouse': warehouse,
             'Parking': parking,
