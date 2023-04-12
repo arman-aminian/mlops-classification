@@ -5,5 +5,7 @@ stages:
     - transfer_to_sql_and_unificate_data
     deps:
     - ../src/collect_data/collect_data.py
+    - ../crawler/divar_data_collection/apartment_tehran.csv
+    - ../crawler/divar_data_collection/car_tehran.csv
     outs:
-    - data/
+    - data/raw/
