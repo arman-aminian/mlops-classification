@@ -2,7 +2,7 @@ import psycopg2
 import pandas as pd
 
 
-def transfer_csv_to_postgresql(csv_path_list, selected_columns=None):
+def transfer_csv_to_postgresql(csv_path_list):
     conn = psycopg2.connect(
         database="exampledb",
         user="docker",
@@ -22,7 +22,7 @@ def transfer_csv_to_postgresql(csv_path_list, selected_columns=None):
     for csv_path in csv_path_list:
         csv_file = pd.read_csv(csv_path)
         for i, row in csv_file.iterrows():
-            desc = row['Description'].replace('\n', ' ').replace('"', "'")[:1000]
+            desc = row['Description'][:1000]
             cur.execute(
                 'INSERT INTO POSTS (model, description, price, category) VALUES (%s, %s, %s, %s)',
                 (row['Model'], desc, row['Price'], csv_path.split('/')[-1], )
