@@ -1,4 +1,4 @@
-download_data:
+transfer_to_sql_and_unificate_data:
   csv_path_list:
     - ../crawler/divar_data_collection/car_tehran.csv
     - ../crawler/divar_data_collection/apartment_tehran.csv

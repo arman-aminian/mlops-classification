@@ -15,5 +15,6 @@ def data_unification(csv_path_list, file_directory):
     cur = conn.cursor()
 
     sql = "COPY (SELECT * FROM POSTS) TO STDOUT WITH CSV DELIMITER ';'"
+    os.makedirs(file_directory, exist_ok=True)
     with open(os.path.join(file_directory, 'posts.csv'), "w") as file:
         cur.copy_expert(sql, file)

@@ -1,11 +1,11 @@
 import argparse
 import yaml
-from src.collect_data.collect_data import transfer_csv_to_postgresql
+from src.collect_data.unificate_data import data_unification
 
 
 def main():
     job_table = {
-        'transfer_to_sql_and_unificate_data': transfer_csv_to_postgresql,
+        'transfer_to_sql_and_unificate_data': data_unification,
     }
 
     parser = argparse.ArgumentParser()
