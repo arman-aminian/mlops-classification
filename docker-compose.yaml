@@ -9,10 +9,10 @@ services:
       POSTGRES_PASSWORD: docker
       POSTGRES_DB: exampledb
 
-  adminer:
-    image: adminer
-    restart: always
-    depends_on:
-      - database
-    ports:
-      - 8080:8080
+#  adminer:
+#    image: adminer
+#    restart: always
+#    depends_on:
+#      - database
+#    ports:
+#      - 8080:8080
