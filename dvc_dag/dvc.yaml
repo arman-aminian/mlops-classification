@@ -6,6 +6,6 @@ stages:
     deps:
     - ../src/collect_data/collect_data.py
     - ../crawler/divar_data_collection/apartment_tehran.csv
-    - ../crawler/divar_data_collection/car_tehran.csv
+    - ../crawler/divar_data_collection/house_tehran.csv
     outs:
     - data/raw/

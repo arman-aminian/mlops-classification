@@ -4,23 +4,23 @@ stages:
     cmd: python3 ../stage_runner.py --job transfer_to_sql_and_unificate_data
     deps:
     - path: ../crawler/divar_data_collection/apartment_tehran.csv
-      md5: b8adcfe212678264683044f17e4e1510
-      size: 361126
-    - path: ../crawler/divar_data_collection/car_tehran.csv
-      md5: 3dbc72beb612a54baa50adf907afe265
-      size: 278033
+      md5: b5dc656d08fc1a4f13f3fd3bcc7b6757
+      size: 308358
+    - path: ../crawler/divar_data_collection/house_tehran.csv
+      md5: 7ef1accbbfbe5ef76e742aeeb6d77352
+      size: 218537
     - path: ../src/collect_data/collect_data.py
-      md5: 67f518799319d5a945dff61721838395
-      size: 863
+      md5: 2f0ff16cb4c305ea2bdfee42b56ba6d7
+      size: 909
     params:
       params.yaml:
         transfer_to_sql_and_unificate_data:
           csv_path_list:
-          - ../crawler/divar_data_collection/car_tehran.csv
+          - ../crawler/divar_data_collection/house_tehran.csv
           - ../crawler/divar_data_collection/apartment_tehran.csv
           file_directory: data/raw/
     outs:
     - path: data/raw/
-      md5: fb453b54ac3f9e7998a06b8743ee6fdb.dir
-      size: 591891
+      md5: 22fc188acda883dac6f0135cab125579.dir
+      size: 526901
       nfiles: 1

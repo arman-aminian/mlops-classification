@@ -13,19 +13,20 @@ def transfer_csv_to_postgresql(csv_path_list):
 
     cur.execute("DROP TABLE IF EXISTS POSTS")
 
-    sql = '''CREATE TABLE POSTS(model int,\
+    sql = '''CREATE TABLE POSTS(model varchar(100),\
     description varchar(1000),\
     price varchar(50),\
+    size int,\
     category varchar(50));'''
     cur.execute(sql)
 
     for csv_path in csv_path_list:
         csv_file = pd.read_csv(csv_path)
         for i, row in csv_file.iterrows():
-            desc = row['Description'][:1000]
+            desc = row['description'][:1000]
             cur.execute(
-                'INSERT INTO POSTS (model, description, price, category) VALUES (%s, %s, %s, %s)',
-                (row['Model'], desc, row['Price'], csv_path.split('/')[-1], )
+                'INSERT INTO POSTS (model, description, price, size, category) VALUES (%s, %s, %s, %s, %s)',
+                (row['year'], desc, row['price'], row['size'], csv_path.split('/')[-1], )
             )
 
     conn.commit()
