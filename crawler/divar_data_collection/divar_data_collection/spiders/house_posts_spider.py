@@ -10,19 +10,19 @@ cities = {
 }
 
 
-class CarPostsSpider(scrapy.Spider):
-    name = 'divar-light-car'
+class HousePostsSpider(scrapy.Spider):
+    name = 'divar-light-house'
 
     start_urls = [url.format(post_token=token) for token in get_tokens(last_post_date=1680787229082899,
                                                                        city_number=cities['tehran'],
-                                                                       n_pages=15)]
+                                                                       n_pages=21,
+                                                                       post_category='house-villa-sell')]
 
     def parse(self, response, **kwargs):
         informations = response.css('div span.kt-group-row-item__value::text')
 
-        km = int(informations[0].extract())
-        model = int(informations[1].extract())
-        color = int(informations[2].extract())
+        area = int(informations[0].extract())
+        construction = int(informations[1].extract())
 
         address = response.css('div div.kt-page-title__subtitle--responsive-sized::text').extract()
         price = response.css('div p.kt-unexpandable-row__value::text').extract_first()
@@ -30,10 +30,9 @@ class CarPostsSpider(scrapy.Spider):
         description = response.css('div p.kt-description-row__text--primary').extract_first()
 
         yield {
-            'KM': km,
-            'Model': model,
-            'Color': color,
-            'Address': address,
-            'Price': price,
-            'Description': description
+            'area': area,
+            'year': construction,
+            'address': address,
+            'price': price,
+            'description': description
         }
