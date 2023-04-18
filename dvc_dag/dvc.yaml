@@ -15,6 +15,7 @@ stages:
     params:
       - split_data
     deps:
+      - ../src/collect_data/split_data.py
       - data/raw/
     outs:
       - data/train_test/
@@ -24,6 +25,7 @@ stages:
     params:
       - manual_feature_eng
     deps:
+      - ../src/feature_eng/manual_features.py
       - data/train_test/
     outs:
       - data/train_test_manual/
