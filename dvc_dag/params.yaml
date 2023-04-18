@@ -3,3 +3,11 @@ transfer_to_sql_and_unificate_data:
     - ../crawler/divar_data_collection/house_tehran.csv
     - ../crawler/divar_data_collection/apartment_tehran.csv
   file_directory: data/raw/
+
+split_data:
+  file_path: data/raw/posts.csv
+  train_test_dir: data/train_test/
+
+manual_feature_eng:
+  train_test_dir: data/train_test/
+  out_dir: data/train_test_manual/

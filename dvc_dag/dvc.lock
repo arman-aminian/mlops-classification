@@ -24,3 +24,43 @@ stages:
       md5: 22fc188acda883dac6f0135cab125579.dir
       size: 526901
       nfiles: 1
+  split_data:
+    cmd: python3 ../stage_runner.py --job split_data
+    deps:
+    - path: ../src/collect_data/split_data.py
+      md5: 7e9e20b05ffd630dd132d7facce34d90
+      size: 1309
+    - path: data/raw/
+      md5: 22fc188acda883dac6f0135cab125579.dir
+      size: 526901
+      nfiles: 1
+    params:
+      params.yaml:
+        split_data:
+          file_path: data/raw/posts.csv
+          train_test_dir: data/train_test/
+    outs:
+    - path: data/train_test/
+      md5: 8df9538df000824c3113e80ed25929dc.dir
+      size: 517367
+      nfiles: 6
+  manual_feature_eng:
+    cmd: python3 ../stage_runner.py --job manual_feature_eng
+    deps:
+    - path: ../src/feature_eng/manual_features.py
+      md5: 7dee538d3b4f58969a6931e8ea054a1c
+      size: 1480
+    - path: data/train_test/
+      md5: 8df9538df000824c3113e80ed25929dc.dir
+      size: 517367
+      nfiles: 6
+    params:
+      params.yaml:
+        manual_feature_eng:
+          train_test_dir: data/train_test/
+          out_dir: data/train_test_manual/
+    outs:
+    - path: data/train_test_manual/
+      md5: f8be6943c60a1063f447d0edc8b3d883.dir
+      size: 497006
+      nfiles: 3
