@@ -7,7 +7,7 @@ def split_dataset(file_path, train_test_dir):
 
     # concatenate dataframes
     data = pd.read_csv(file_path,
-                       on_bad_lines='skip',
+                       error_bad_lines='skip',
                        delimiter=';',
                        names=['model', 'desc', 'price', 'size', 'label'])
 

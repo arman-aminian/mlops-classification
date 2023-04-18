@@ -24,3 +24,20 @@ stages:
       md5: 22fc188acda883dac6f0135cab125579.dir
       size: 526901
       nfiles: 1
+  split_data:
+    cmd: python3 ../stage_runner.py --job split_data
+    deps:
+    - path: data/raw/
+      md5: 22fc188acda883dac6f0135cab125579.dir
+      size: 526901
+      nfiles: 1
+    params:
+      params.yaml:
+        split_data:
+          file_path: data/raw/posts.csv
+          train_test_dir: data/train_test/
+    outs:
+    - path: data/train_test/
+      md5: 8df9538df000824c3113e80ed25929dc.dir
+      size: 517367
+      nfiles: 6
