@@ -9,3 +9,12 @@ stages:
     - ../crawler/divar_data_collection/house_tehran.csv
     outs:
     - data/raw/
+
+  split_data:
+    cmd: python3 ../stage_runner.py --job split_data
+    params:
+      - split_data
+    deps:
+      - data/raw/
+    outs:
+      - data/train_test/
