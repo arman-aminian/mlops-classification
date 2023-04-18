@@ -10,6 +10,7 @@ def make_model_int(model):
 
 
 def manual_feature_eng(train_test_dir, out_dir):
+    os.makedirs(out_dir, exist_ok=True)
 
     for data_type in ['train', 'test', 'val']:
         # read file

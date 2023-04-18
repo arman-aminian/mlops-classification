@@ -41,3 +41,20 @@ stages:
       md5: 8df9538df000824c3113e80ed25929dc.dir
       size: 517367
       nfiles: 6
+  manual_feature_eng:
+    cmd: python3 ../stage_runner.py --job manual_feature_eng
+    deps:
+    - path: data/train_test/
+      md5: 8df9538df000824c3113e80ed25929dc.dir
+      size: 517367
+      nfiles: 6
+    params:
+      params.yaml:
+        manual_feature_eng:
+          train_test_dir: data/train_test/
+          out_dir: data/train_test_manual/
+    outs:
+    - path: data/train_test_manual/
+      md5: 5d2a2467b7d38dcb9ba64e5c29507c25.dir
+      size: 525009
+      nfiles: 3
