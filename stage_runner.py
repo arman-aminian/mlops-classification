@@ -2,12 +2,14 @@ import argparse
 import yaml
 from src.collect_data.unificate_data import data_unification
 from src.collect_data.split_data import split_dataset
+from src.feature_eng.manual_features import manual_feature_eng
 
 
 def main():
     job_table = {
         'transfer_to_sql_and_unificate_data': data_unification,
-        'split_data': split_dataset
+        'split_data': split_dataset,
+        'manual_feature_eng': manual_feature_eng,
     }
 
     parser = argparse.ArgumentParser()

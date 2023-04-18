@@ -18,3 +18,12 @@ stages:
       - data/raw/
     outs:
       - data/train_test/
+
+  manual_feature_eng:
+    cmd: python3 ../stage_runner.py --job manual_feature_eng
+    params:
+      - manual_feature_eng
+    deps:
+      - data/train_test/
+    outs:
+      - data/train_test_manual/
