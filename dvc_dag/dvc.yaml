@@ -70,6 +70,17 @@ stages:
     outs:
       - data/train_test_augmentation/
 
+  pca_logistic_regression:
+    cmd: python3 ../stage_runner.py --job pca_logistic_regression
+    params:
+      - pca_logistic_regression
+    deps:
+      - ../src/pca_logistic_regression/pca_lr.py
+      - data/train_test_char_vectorizer/
+    metrics:
+      - report/pca_logistic_regression.json:
+          cache: false
+
   random_foreest:
     cmd: python3 ../stage_runner.py --job random_forest
     params:
