@@ -4,8 +4,8 @@ import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 
-def manual_feature_eng(train_test_inp_dir, out_dir):
-    tf_idf_vectorizer = TfidfVectorizer(sublinear_tf=True, ngram_range=(1, 2))
+def manual_feature_eng(train_test_inp_dir, out_dir, min_df):
+    tf_idf_vectorizer = TfidfVectorizer(sublinear_tf=True, ngram_range=(1, 2), min_df=min_df)
 
     os.makedirs(out_dir, exist_ok=True)
     for data_type in ['train', 'test', 'val']:
