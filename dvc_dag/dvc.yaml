@@ -40,6 +40,16 @@ stages:
     outs:
       - data/train_test_tf_idf/
 
+  bert_encoding:
+    cmd: python3 ../stage_runner.py --job bert_encoding
+    params:
+      - bert_encoding
+    deps:
+      - ../src/feature_eng/bert_encoding.py
+      - data/train_test_manual/
+    outs:
+      - data/train_test_bert_encoded/
+
   data_augmentation:
     cmd: python3 ../stage_runner.py --job data_augmentation
     params:

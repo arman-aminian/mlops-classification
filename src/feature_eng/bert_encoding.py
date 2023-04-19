@@ -14,7 +14,7 @@ def encode(tokenizer, model, text):
     return embedding.detach().numpy().tolist()[0]
 
 
-def bert_encoding(train_test_inp_dir, out_dir, min_df):
+def bert_encoding(train_test_inp_dir, out_dir):
     # Load pre-trained BERT model and tokenizer
     tokenizer = BertTokenizer.from_pretrained('HooshvareLab/bert-fa-zwnj-base')
     model = BertModel.from_pretrained('HooshvareLab/bert-fa-zwnj-base')
