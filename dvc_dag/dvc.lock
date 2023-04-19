@@ -64,3 +64,23 @@ stages:
       md5: f8be6943c60a1063f447d0edc8b3d883.dir
       size: 497006
       nfiles: 3
+  tf_idf_eng:
+    cmd: python3 ../stage_runner.py --job tf_idf_eng
+    deps:
+    - path: ../src/feature_eng/tfidf_features.py
+      md5: 168c9cd36c61eefa996835300f99a74d
+      size: 914
+    - path: data/train_test_manual/
+      md5: f8be6943c60a1063f447d0edc8b3d883.dir
+      size: 497006
+      nfiles: 3
+    params:
+      params.yaml:
+        tf_idf_eng:
+          train_test_inp_dir: data/train_test_manual/
+          out_dir: data/train_test_tf_idf/
+    outs:
+    - path: data/train_test_tf_idf/
+      md5: 59bbe683a33a54a0e72f4d2c878458f6.dir
+      size: 92001837
+      nfiles: 3
