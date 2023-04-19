@@ -40,3 +40,14 @@ stages:
     outs:
       - data/train_test_tf_idf/
 
+  random_foreest:
+    cmd: python3 ../stage_runner.py --job random_forest
+    params:
+      - random_forest
+    deps:
+      - ../src/tfidf_random_forest/random_forest.py
+      - data/train_test_tf_idf/
+    metrics:
+      - report/tfidf_random_forest.json:
+          cache: false
+
