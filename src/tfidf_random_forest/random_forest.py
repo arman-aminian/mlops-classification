@@ -5,7 +5,7 @@ from src.validation.metrics import get_metrics
 from pathlib import Path
 
 
-def tfidf_pca_random_forest(inp_dir, metric_path, n_estimators, threshold):
+def tfidf_random_forest(inp_dir, metric_path, n_estimators, threshold):
     os.makedirs(inp_dir, exist_ok=True)
     scores = {}
     for data_type in ['train', 'test', 'val']:
