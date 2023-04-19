@@ -25,10 +25,10 @@ def bert_encoding(train_test_inp_dir, out_dir):
         data = pd.read_csv(os.path.join(train_test_inp_dir, f'x_{data_type}.csv'), index_col=0)
         y = pd.read_csv(os.path.join(train_test_inp_dir, f'y_{data_type}.csv'), index_col=0)
 
-        bert_embeddings = data.desc.apply(lambda x: encode(tokenizer, model, x))
+        bert_embeddings = data.desc.apply(lambda x: encode(tokenizer, model, x)).tolist()
 
-        columns = ['t_' + str(i) for i in np.arange(bert_embeddings.shape[1])]
-        df_tfidf = pd.DataFrame(bert_embeddings.tolist(), columns=columns)
+        columns = ['t_' + str(i) for i in np.arange(len(bert_embeddings[0]))]
+        df_tfidf = pd.DataFrame(bert_embeddings, columns=columns)
         data = data.drop(columns='desc').join(df_tfidf)
         data.to_csv(os.path.join(out_dir, f'x_{data_type}.csv'))
         y.to_csv(os.path.join(out_dir, f'y_{data_type}.csv'))
