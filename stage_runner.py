@@ -5,6 +5,7 @@ from src.collect_data.split_data import split_dataset
 from src.feature_eng.manual_features import manual_feature_eng
 from src.feature_eng.tfidf_features import tfidf_eng
 from src.tfidf_random_forest.random_forest import tfidf_random_forest
+from src.autoencoder_logistic_regression.autoencoder_logistic_regression import autoencoder_logistic_regression_class_weights
 
 
 def main():
@@ -13,7 +14,8 @@ def main():
         'split_data': split_dataset,
         'manual_feature_eng': manual_feature_eng,
         'tf_idf_eng': tfidf_eng,
-        'random_forest': tfidf_random_forest
+        'random_forest': tfidf_random_forest,
+        'autoencoder_logistic_regression': autoencoder_logistic_regression_class_weights
     }
 
     parser = argparse.ArgumentParser()

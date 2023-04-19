@@ -13,7 +13,7 @@ from pathlib import Path
 import json
 
 
-def tfidf_random_forest(inp_dir, metric_path, n_epochs, threshold):
+def autoencoder_logistic_regression_class_weights(inp_dir, metric_path, n_epochs, threshold):
 
     os.makedirs(inp_dir, exist_ok=True)
     scores = {}
