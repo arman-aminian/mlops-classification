@@ -12,13 +12,21 @@ def text_augmentation(sent):
     return augmented_text
 
 
-def data_augmentation(train_test_dir, out_dir, train_set_only=True):
+def make_model_int(model):
+    try:
+        return int(model)
+    except:
+        return 1369
 
+
+def data_augmentation(train_test_dir, out_dir, train_set_only=True):
     os.makedirs(out_dir, exist_ok=True)
     for data_type in ['train', 'test', 'val']:
         # read file
         data = pd.read_csv(os.path.join(train_test_dir, f'x_{data_type}.csv'), index_col=0)
         y = pd.read_csv(os.path.join(train_test_dir, f'y_{data_type}.csv'), index_col=0)
+
+        data.model = data.model.apply(make_model_int)
 
         if not train_set_only or data_type == 'train':
             y0 = y.value_counts()[0]

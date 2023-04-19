@@ -66,7 +66,7 @@ stages:
       - data_augmentation
     deps:
       - ../src/balance_data/data_augmentation.py
-      - data/train_test_manual/
+      - data/train_test/
     outs:
       - data/train_test_augmentation/
 

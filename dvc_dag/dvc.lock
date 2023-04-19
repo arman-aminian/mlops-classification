@@ -131,21 +131,21 @@ stages:
     cmd: python3 ../stage_runner.py --job data_augmentation
     deps:
     - path: ../src/balance_data/data_augmentation.py
-      md5: 875a71ac1826c21cd48326c7c7ef63b0
-      size: 1310
-    - path: data/train_test_manual/
-      md5: 52e0328ea4368a33e3c41a9d4405da57.dir
-      size: 502685
+      md5: aed6b8b28b5fd18968f1615c25fe5bb1
+      size: 1460
+    - path: data/train_test/
+      md5: 8df9538df000824c3113e80ed25929dc.dir
+      size: 517367
       nfiles: 6
     params:
       params.yaml:
         data_augmentation:
-          train_test_dir: data/train_test_manual/
+          train_test_dir: data/train_test/
           out_dir: data/train_test_augmentation/
     outs:
     - path: data/train_test_augmentation/
-      md5: e62e198ec1926513e0de3ad38a535a4d.dir
-      size: 502628
+      md5: ade4ea8c5af78990c544f9b99eeb6d0e.dir
+      size: 512019
       nfiles: 6
   bert_encoding:
     cmd: python3 ../stage_runner.py --job bert_encoding
@@ -154,8 +154,8 @@ stages:
       md5: e8371357b60bb7928ea0525da22bb033
       size: 1387
     - path: data/train_test_augmentation/
-      md5: e62e198ec1926513e0de3ad38a535a4d.dir
-      size: 502628
+      md5: ade4ea8c5af78990c544f9b99eeb6d0e.dir
+      size: 512019
       nfiles: 6
     params:
       params.yaml:
@@ -164,8 +164,8 @@ stages:
           out_dir: data/train_test_bert_encoded/
     outs:
     - path: data/train_test_bert_encoded/
-      md5: a72e1ea3107246d8263fc5972b46a354.dir
-      size: 15305632
+      md5: b14a6c7f30e15e3169c79a7a768aedfd.dir
+      size: 15276453
       nfiles: 6
   char_vect_eng:
     cmd: python3 ../stage_runner.py --job char_vect_eng
@@ -214,8 +214,8 @@ stages:
       md5: 1e7a6726ae167df49a0ff311801fbc65
       size: 1626
     - path: data/train_test_bert_encoded/
-      md5: a72e1ea3107246d8263fc5972b46a354.dir
-      size: 15305632
+      md5: b14a6c7f30e15e3169c79a7a768aedfd.dir
+      size: 15276453
       nfiles: 6
     params:
       params.yaml:
@@ -226,5 +226,5 @@ stages:
           threshold: 0.5
     outs:
     - path: report/bert_gradient_boost.json
-      md5: af444741e26a8692dc4608e672f3f0d7
-      size: 501
+      md5: 96e6221ceee26f720a6345bcaa14cd22
+      size: 503

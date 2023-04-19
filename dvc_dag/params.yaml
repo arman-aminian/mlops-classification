@@ -26,7 +26,7 @@ bert_encoding:
   out_dir: data/train_test_bert_encoded/
 
 data_augmentation:
-  train_test_dir: data/train_test_manual/
+  train_test_dir: data/train_test/
   out_dir: data/train_test_augmentation/
 
 pca_logistic_regression:
