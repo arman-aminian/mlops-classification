@@ -62,7 +62,7 @@ def autoencoder_logistic_regression_class_weights(inp_dir, metric_path, n_epochs
 
         data_encoded = encoder.predict(data)
         precision, recall, average_precision, roc_auc = get_metrics(y_true=y,
-                                                                    y_pred=clf.predict(data_encoded),
+                                                                    y_pred=model.predict(data_encoded),
                                                                     threshold=threshold)
 
         print('{} set evaluation:'.format(data_type))
