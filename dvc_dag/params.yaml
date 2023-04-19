@@ -40,6 +40,12 @@ random_forest:
   n_estimators: 100
   threshold: 0.5
 
+bert_gradient_boost:
+  inp_dir: data/train_test_bert_encoded/
+  metric_path: report/bert_gradient_boost.json
+  n_estimators: 100
+  threshold: 0.5
+
 autoencoder_logistic_regression:
   inp_dir: data/train_test_tf_idf/
   metric_path: report/autoencoder_logistic_regression_class_weights.json

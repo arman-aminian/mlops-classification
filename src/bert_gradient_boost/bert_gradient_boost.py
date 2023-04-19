@@ -6,8 +6,8 @@ from pathlib import Path
 import json
 
 
-def tfidf_random_forest(inp_dir, metric_path, n_estimators, threshold):
-    clf = GradientBoostingClassifier(n_estimators=100, learning_rate=0.1, max_depth=2)
+def bert_gradient_boost(inp_dir, metric_path, n_estimators, threshold):
+    clf = GradientBoostingClassifier(n_estimators=n_estimators, learning_rate=0.1, max_depth=2)
 
     os.makedirs(inp_dir, exist_ok=True)
     scores = {}
