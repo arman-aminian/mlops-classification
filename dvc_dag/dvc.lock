@@ -106,3 +106,24 @@ stages:
     - path: report/tfidf_random_forest.json
       md5: 0b9032ca953999a1ee2b115125306eb4
       size: 442
+  autoencoder_logistic_regression:
+    cmd: python3 ../stage_runner.py --job autoencoder_logistic_regression
+    deps:
+    - path: ../src/autoencoder_logistic_regression/autoencoder_logistic_regression.py
+      md5: e0bcb3f25a8eedae571eae79f1dab02a
+      size: 3344
+    - path: data/train_test_tf_idf/
+      md5: 6201029326078b8ebd99ebc419415099.dir
+      size: 7775004
+      nfiles: 6
+    params:
+      params.yaml:
+        autoencoder_logistic_regression:
+          inp_dir: data/train_test_tf_idf/
+          metric_path: report/autoencoder_logistic_regression_class_weights.json
+          n_epochs: 20
+          threshold: 0.5
+    outs:
+    - path: report/autoencoder_logistic_regression_class_weights.json
+      md5: fa5573a1164332e624ebd9379a7b7461
+      size: 503
