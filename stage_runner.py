@@ -9,6 +9,7 @@ from src.autoencoder_logistic_regression.autoencoder_logistic_regression import 
 from src.balance_data.data_augmentation import data_augmentation
 from src.feature_eng.bert_encoding import bert_encoding
 from src.feature_eng.char_vectorizer import char_vectorizer
+from src.pca_logistic_regression.pca_lr import pca_logistic_regression
 
 
 def main():
@@ -21,7 +22,8 @@ def main():
         'autoencoder_logistic_regression': autoencoder_logistic_regression_class_weights,
         'data_augmentation': data_augmentation,
         'bert_encoding': bert_encoding,
-        'char_vect_eng': char_vectorizer
+        'char_vect_eng': char_vectorizer,
+        'pca_logistic_regression': pca_logistic_regression
     }
 
     parser = argparse.ArgumentParser()

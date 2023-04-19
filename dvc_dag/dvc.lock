@@ -187,3 +187,23 @@ stages:
       md5: bfbfaac8be4c33c270db9c61d1747a99.dir
       size: 6256545
       nfiles: 6
+  pca_logistic_regression:
+    cmd: python3 ../stage_runner.py --job pca_logistic_regression
+    deps:
+    - path: ../src/pca_logistic_regression/pca_lr.py
+      md5: ac03824f946d7704f0fd92eef483d5ff
+      size: 2147
+    - path: data/train_test_char_vectorizer/
+      md5: bfbfaac8be4c33c270db9c61d1747a99.dir
+      size: 6256545
+      nfiles: 6
+    params:
+      params.yaml:
+        pca_logistic_regression:
+          inp_dir: data/train_test_char_vectorizer/
+          metric_path: report/pca_logistic_regression.json
+          threshold: 0.5
+    outs:
+    - path: report/pca_logistic_regression.json
+      md5: a6c42aa1c87432c4ee7ea4317268c36c
+      size: 504
