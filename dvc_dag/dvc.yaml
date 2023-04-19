@@ -56,7 +56,7 @@ stages:
     params:
       - autoencoder_logistic_regression
     deps:
-      - ../src/tfidf_random_forest/autoencoder_logistic_regression.py
+      - ../src/autoencoder_logistic_regression/autoencoder_logistic_regression.py
       - data/train_test_tf_idf/
     metrics:
       - report/autoencoder_logistic_regression_class_weights.json:
