@@ -40,6 +40,16 @@ stages:
     outs:
       - data/train_test_tf_idf/
 
+  char_vect_eng:
+    cmd: python3 ../stage_runner.py --job char_vect_eng
+    params:
+      - char_vect_eng
+    deps:
+      - ../src/feature_eng/char_vectorizer.py
+      - data/train_test/
+    outs:
+      - data/train_test_char_vectorizer/
+
   bert_encoding:
     cmd: python3 ../stage_runner.py --job bert_encoding
     params:

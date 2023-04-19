@@ -17,6 +17,10 @@ tf_idf_eng:
   out_dir: data/train_test_tf_idf/
   min_df: 5
 
+char_vect_eng:
+  train_test_inp_dir: data/train_test/
+  out_dir: data/train_test_char_vectorizer/
+
 bert_encoding:
   train_test_inp_dir: data/train_test_manual/
   out_dir: data/train_test_bert_encoded/

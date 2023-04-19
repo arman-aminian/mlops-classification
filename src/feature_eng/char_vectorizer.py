@@ -4,7 +4,14 @@ import pandas as pd
 from sklearn.feature_extraction.text import CountVectorizer
 
 
-def char_vectorizer(train_test_inp_dir, out_dir, min_df):
+def make_model_int(model):
+    try:
+        return int(model)
+    except:
+        return 1369
+
+
+def char_vectorizer(train_test_inp_dir, out_dir):
     char_vect = CountVectorizer(ngram_range=(2, 2), analyzer="char")
 
     os.makedirs(out_dir, exist_ok=True)
@@ -12,6 +19,8 @@ def char_vectorizer(train_test_inp_dir, out_dir, min_df):
         # read file
         data = pd.read_csv(os.path.join(train_test_inp_dir, f'x_{data_type}.csv'), index_col=0)
         y = pd.read_csv(os.path.join(train_test_inp_dir, f'y_{data_type}.csv'), index_col=0)
+
+        data.model = data.model.apply(make_model_int)
 
         if data_type == 'train':
             tf_idf_features = char_vect.fit_transform(data.desc)
