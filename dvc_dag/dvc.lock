@@ -85,3 +85,24 @@ stages:
       md5: 6201029326078b8ebd99ebc419415099.dir
       size: 7775004
       nfiles: 6
+  random_foreest:
+    cmd: python3 ../stage_runner.py --job random_forest
+    deps:
+    - path: ../src/tfidf_random_forest/random_forest.py
+      md5: 50f2ee6de028358229e6b79a83bfbf19
+      size: 1586
+    - path: data/train_test_tf_idf/
+      md5: 6201029326078b8ebd99ebc419415099.dir
+      size: 7775004
+      nfiles: 6
+    params:
+      params.yaml:
+        random_forest:
+          inp_dir: data/train_test_tf_idf/
+          metric_path: report/tfidf_random_forest.json
+          n_estimators: 100
+          threshold: 0.5
+    outs:
+    - path: report/tfidf_random_forest.json
+      md5: 0b9032ca953999a1ee2b115125306eb4
+      size: 442

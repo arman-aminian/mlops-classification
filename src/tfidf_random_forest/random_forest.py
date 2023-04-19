@@ -3,9 +3,12 @@ import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 from src.validation.metrics import get_metrics
 from pathlib import Path
+import json
 
 
 def tfidf_random_forest(inp_dir, metric_path, n_estimators, threshold):
+    clf = RandomForestClassifier(n_estimators=n_estimators)
+
     os.makedirs(inp_dir, exist_ok=True)
     scores = {}
     for data_type in ['train', 'test', 'val']:
@@ -13,12 +16,11 @@ def tfidf_random_forest(inp_dir, metric_path, n_estimators, threshold):
         data = pd.read_csv(os.path.join(inp_dir, f'x_{data_type}.csv'), index_col=0)
         y = pd.read_csv(os.path.join(inp_dir, f'y_{data_type}.csv'), index_col=0)
 
-        clf = RandomForestClassifier(n_estimators=n_estimators)
         if data_type == 'train':
             clf.fit(data, y)
 
         precision, recall, average_precision, roc_auc = get_metrics(y_true=y,
-                                                                    y_pred=clf.predict(data_type),
+                                                                    y_pred=clf.predict(data),
                                                                     threshold=threshold)
 
         print('{} set evaluation:'.format(data_type))
