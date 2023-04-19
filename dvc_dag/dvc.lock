@@ -130,7 +130,7 @@ stages:
   data_augmentation:
     cmd: python3 ../stage_runner.py --job data_augmentation
     deps:
-    - path: ../src/feature_eng/data_augmentation.py
+    - path: ../src/balance_data/data_augmentation.py
       md5: 875a71ac1826c21cd48326c7c7ef63b0
       size: 1310
     - path: data/train_test_manual/

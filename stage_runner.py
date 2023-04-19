@@ -6,7 +6,7 @@ from src.feature_eng.manual_features import manual_feature_eng
 from src.feature_eng.tfidf_features import tfidf_eng
 from src.tfidf_random_forest.random_forest import tfidf_random_forest
 from src.autoencoder_logistic_regression.autoencoder_logistic_regression import autoencoder_logistic_regression_class_weights
-from src.feature_eng.data_augmentation import data_augmentation
+from src.balance_data.data_augmentation import data_augmentation
 
 
 def main():
