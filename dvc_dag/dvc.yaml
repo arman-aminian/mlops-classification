@@ -56,7 +56,7 @@ stages:
       - bert_encoding
     deps:
       - ../src/feature_eng/bert_encoding.py
-      - data/train_test_manual/
+      - data/train_test_augmentation/
     outs:
       - data/train_test_bert_encoded/
 

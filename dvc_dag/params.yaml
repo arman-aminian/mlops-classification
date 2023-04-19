@@ -22,7 +22,7 @@ char_vect_eng:
   out_dir: data/train_test_char_vectorizer/
 
 bert_encoding:
-  train_test_inp_dir: data/train_test_manual/
+  train_test_inp_dir: data/train_test_augmentation/
   out_dir: data/train_test_bert_encoded/
 
 data_augmentation:
