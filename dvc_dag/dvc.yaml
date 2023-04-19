@@ -40,6 +40,16 @@ stages:
     outs:
       - data/train_test_tf_idf/
 
+  data_augmentation:
+    cmd: python3 ../stage_runner.py --job data_augmentation
+    params:
+      - data_augmentation
+    deps:
+      - ../src/feature_eng/data_augmentation.py
+      - data/train_test_manual/
+    outs:
+      - data/train_test_augmentation/
+
   random_foreest:
     cmd: python3 ../stage_runner.py --job random_forest
     params:
