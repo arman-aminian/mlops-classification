@@ -100,7 +100,7 @@ stages:
       - ../src/bert_gradient_boost/bert_gradient_boost.py
       - data/train_test_bert_encoded/
     metrics:
-      - report/tfidf_random_forest.json:
+      - report/bert_gradient_boost.json:
           cache: false
 
   autoencoder_logistic_regression:
