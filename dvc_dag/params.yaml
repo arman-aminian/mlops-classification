@@ -17,6 +17,10 @@ tf_idf_eng:
   out_dir: data/train_test_tf_idf/
   min_df: 5
 
+data_augmentation:
+  train_test_dir: data/train_test_manual/
+  out_dir: data/train_test_augmentation/
+
 random_forest:
   inp_dir: data/train_test_tf_idf/
   metric_path: report/tfidf_random_forest.json
