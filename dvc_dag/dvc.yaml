@@ -45,7 +45,7 @@ stages:
     params:
       - data_augmentation
     deps:
-      - ../src/feature_eng/data_augmentation.py
+      - ../src/balance_data/data_augmentation.py
       - data/train_test_manual/
     outs:
       - data/train_test_augmentation/
