@@ -8,6 +8,7 @@ from src.tfidf_random_forest.random_forest import tfidf_random_forest
 from src.autoencoder_logistic_regression.autoencoder_logistic_regression import autoencoder_logistic_regression_class_weights
 from src.balance_data.data_augmentation import data_augmentation
 from src.feature_eng.bert_encoding import bert_encoding
+from src.feature_eng.char_vectorizer import char_vectorizer
 
 
 def main():
@@ -20,6 +21,7 @@ def main():
         'autoencoder_logistic_regression': autoencoder_logistic_regression_class_weights,
         'data_augmentation': data_augmentation,
         'bert_encoding': bert_encoding,
+        'char_vect_eng': char_vectorizer
     }
 
     parser = argparse.ArgumentParser()

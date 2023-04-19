@@ -4,3 +4,4 @@
 /train_test_tf_idf
 /train_test_augmentation
 /train_test_bert_encoded
+/train_test_char_vectorizer

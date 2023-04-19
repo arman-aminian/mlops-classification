@@ -167,3 +167,23 @@ stages:
       md5: 627dbe8c6753f1ed677d8643ee0dcb71.dir
       size: 15305636
       nfiles: 6
+  char_vect_eng:
+    cmd: python3 ../stage_runner.py --job char_vect_eng
+    deps:
+    - path: ../src/feature_eng/char_vectorizer.py
+      md5: 9008ae6076cdd87c0613f06e9f7af56b
+      size: 1191
+    - path: data/train_test/
+      md5: 8df9538df000824c3113e80ed25929dc.dir
+      size: 517367
+      nfiles: 6
+    params:
+      params.yaml:
+        char_vect_eng:
+          train_test_inp_dir: data/train_test/
+          out_dir: data/train_test_char_vectorizer/
+    outs:
+    - path: data/train_test_char_vectorizer/
+      md5: bfbfaac8be4c33c270db9c61d1747a99.dir
+      size: 6256545
+      nfiles: 6
