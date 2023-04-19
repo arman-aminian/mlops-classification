@@ -147,3 +147,23 @@ stages:
       md5: e62e198ec1926513e0de3ad38a535a4d.dir
       size: 502628
       nfiles: 6
+  bert_encoding:
+    cmd: python3 ../stage_runner.py --job bert_encoding
+    deps:
+    - path: ../src/feature_eng/bert_encoding.py
+      md5: e8371357b60bb7928ea0525da22bb033
+      size: 1387
+    - path: data/train_test_manual/
+      md5: 52e0328ea4368a33e3c41a9d4405da57.dir
+      size: 502685
+      nfiles: 6
+    params:
+      params.yaml:
+        bert_encoding:
+          train_test_inp_dir: data/train_test_manual/
+          out_dir: data/train_test_bert_encoded/
+    outs:
+    - path: data/train_test_bert_encoded/
+      md5: 627dbe8c6753f1ed677d8643ee0dcb71.dir
+      size: 15305636
+      nfiles: 6
