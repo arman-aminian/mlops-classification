@@ -48,8 +48,8 @@ stages:
     cmd: python3 ../stage_runner.py --job manual_feature_eng
     deps:
     - path: ../src/feature_eng/manual_features.py
-      md5: 7dee538d3b4f58969a6931e8ea054a1c
-      size: 1480
+      md5: 65c70326eccb3b8d53b1cf2d5f73aac1
+      size: 1604
     - path: data/train_test/
       md5: 8df9538df000824c3113e80ed25929dc.dir
       size: 517367
@@ -61,6 +61,48 @@ stages:
           out_dir: data/train_test_manual/
     outs:
     - path: data/train_test_manual/
-      md5: f8be6943c60a1063f447d0edc8b3d883.dir
-      size: 497006
-      nfiles: 3
+      md5: 52e0328ea4368a33e3c41a9d4405da57.dir
+      size: 502685
+      nfiles: 6
+  tf_idf_eng:
+    cmd: python3 ../stage_runner.py --job tf_idf_eng
+    deps:
+    - path: ../src/feature_eng/tfidf_features.py
+      md5: 0b362757807c0e4cfef5a23ed9cfcf0d
+      size: 1083
+    - path: data/train_test_manual/
+      md5: 52e0328ea4368a33e3c41a9d4405da57.dir
+      size: 502685
+      nfiles: 6
+    params:
+      params.yaml:
+        tf_idf_eng:
+          train_test_inp_dir: data/train_test_manual/
+          out_dir: data/train_test_tf_idf/
+          min_df: 5
+    outs:
+    - path: data/train_test_tf_idf/
+      md5: 6201029326078b8ebd99ebc419415099.dir
+      size: 7775004
+      nfiles: 6
+  random_foreest:
+    cmd: python3 ../stage_runner.py --job random_forest
+    deps:
+    - path: ../src/tfidf_random_forest/random_forest.py
+      md5: 50f2ee6de028358229e6b79a83bfbf19
+      size: 1586
+    - path: data/train_test_tf_idf/
+      md5: 6201029326078b8ebd99ebc419415099.dir
+      size: 7775004
+      nfiles: 6
+    params:
+      params.yaml:
+        random_forest:
+          inp_dir: data/train_test_tf_idf/
+          metric_path: report/tfidf_random_forest.json
+          n_estimators: 100
+          threshold: 0.5
+    outs:
+    - path: report/tfidf_random_forest.json
+      md5: 0b9032ca953999a1ee2b115125306eb4
+      size: 442

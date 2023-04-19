@@ -32,8 +32,8 @@ def manual_feature_eng(train_test_dir, out_dir):
     os.makedirs(out_dir, exist_ok=True)
     for data_type in ['train', 'test', 'val']:
         # read file
-        data = pd.read_csv(os.path.join(train_test_dir, f'x_{data_type}.csv'),
-                           index_col=0)
+        data = pd.read_csv(os.path.join(train_test_dir, f'x_{data_type}.csv'), index_col=0)
+        y = pd.read_csv(os.path.join(train_test_dir, f'y_{data_type}.csv'), index_col=0)
 
         data.model = data.model.apply(make_model_int)
         data['age'] = data.model.apply(lambda x: 1402 - x)
@@ -42,3 +42,4 @@ def manual_feature_eng(train_test_dir, out_dir):
         data['desc'] = data.desc.apply(lambda x: preprocess_description(x, tokenizer, normalizer, lemmatizer))
 
         data.to_csv(os.path.join(out_dir, f'x_{data_type}.csv'))
+        y.to_csv(os.path.join(out_dir, f'y_{data_type}.csv'))
