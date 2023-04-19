@@ -92,6 +92,17 @@ stages:
       - report/tfidf_random_forest.json:
           cache: false
 
+  bert_gradient_boost:
+    cmd: python3 ../stage_runner.py --job bert_gradient_boost
+    params:
+      - bert_gradient_boost
+    deps:
+      - ../src/bert_gradient_boost/bert_gradient_boost.py
+      - data/train_test_bert_encoded/
+    metrics:
+      - report/bert_gradient_boost.json:
+          cache: false
+
   autoencoder_logistic_regression:
     cmd: python3 ../stage_runner.py --job autoencoder_logistic_regression
     params:

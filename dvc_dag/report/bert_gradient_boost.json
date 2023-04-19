@@ -1,0 +1,14 @@
+{
+    "train_precision": 0.9845360824742269,
+    "train_recall": 0.9794871794871794,
+    "train_avg_precision": 0.9748253984421581,
+    "train_roc_auc": 0.9817006943012305,
+    "test_precision": 0.8723404255319149,
+    "test_recall": 0.9534883720930233,
+    "test_avg_precision": 0.8517664522513608,
+    "test_roc_auc": 0.9241126070991432,
+    "val_precision": 0.9090909090909091,
+    "val_recall": 0.9090909090909091,
+    "val_avg_precision": 0.87089072543618,
+    "val_roc_auc": 0.9110671936758894
+}

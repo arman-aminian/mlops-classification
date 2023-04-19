@@ -10,7 +10,7 @@ from src.balance_data.data_augmentation import data_augmentation
 from src.feature_eng.bert_encoding import bert_encoding
 from src.feature_eng.char_vectorizer import char_vectorizer
 from src.pca_logistic_regression.pca_lr import pca_logistic_regression
-
+from src.bert_gradient_boost.bert_gradient_boost import bert_gradient_boost
 
 def main():
     job_table = {
@@ -23,7 +23,8 @@ def main():
         'data_augmentation': data_augmentation,
         'bert_encoding': bert_encoding,
         'char_vect_eng': char_vectorizer,
-        'pca_logistic_regression': pca_logistic_regression
+        'pca_logistic_regression': pca_logistic_regression,
+        'bert_gradient_boost': bert_gradient_boost
     }
 
     parser = argparse.ArgumentParser()

@@ -207,3 +207,24 @@ stages:
     - path: report/pca_logistic_regression.json
       md5: a6c42aa1c87432c4ee7ea4317268c36c
       size: 504
+  bert_gradient_boost:
+    cmd: python3 ../stage_runner.py --job bert_gradient_boost
+    deps:
+    - path: ../src/bert_gradient_boost/bert_gradient_boost.py
+      md5: 1e7a6726ae167df49a0ff311801fbc65
+      size: 1626
+    - path: data/train_test_bert_encoded/
+      md5: 627dbe8c6753f1ed677d8643ee0dcb71.dir
+      size: 15305636
+      nfiles: 6
+    params:
+      params.yaml:
+        bert_gradient_boost:
+          inp_dir: data/train_test_bert_encoded/
+          metric_path: report/bert_gradient_boost.json
+          n_estimators: 100
+          threshold: 0.5
+    outs:
+    - path: report/bert_gradient_boost.json
+      md5: af444741e26a8692dc4608e672f3f0d7
+      size: 501
